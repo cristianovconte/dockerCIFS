@@ -1,0 +1,7 @@
+FROM ubuntu:18.04
+RUN mkdir -p /app/mnt
+WORKDIR /app
+RUN apt-get update && apt-get install -y cifs-utils
+COPY test.sh /app/
+RUN chmod +x /app/test.sh
+CMD ["/app/test.sh"]
